@@ -1,12 +1,15 @@
 #include <stdio.h>
-int main(){
-	int arr[10]={0};
-	for(int i=0;i<10;i++){
-		scanf("%d",&arr[i]);
+int main(int argc,const char* argv[]){
+
+	int n=argc-2;
+	int arr[n];
+	for(int i=1;i<argc-1;i++){
+		arr[i-1]=atoi(argv[i]);
 	}
 	int num=0;
-	scanf("%d",&num);
-	int result=binarysearch(arr,0,9,num);
+	num=atoi(argv[argc-1]);
+	
+	int result=binarysearch(arr,0,n-1,num);
 	if(result==-1){
 	printf("Number doesnt exist");
 	}
@@ -17,7 +20,7 @@ int main(){
 }
 int binarysearch(int arr[],int a,int b,int num){
 if(b>=a){
-int mid=l + (r-l)/2;
+int mid=a + (b-a)/2;
 
 if(arr[mid]==num){
 	return mid;
