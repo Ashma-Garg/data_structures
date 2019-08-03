@@ -1,5 +1,5 @@
 #include <stdio.h>
-void rotatematrix(int m, int n, int mat[m][n]) 
+int rotatematrix(int m, int n, int mat[m][n]) 
 { 
     int row = 0, col = 0; 
     int prev, curr; 
@@ -57,12 +57,7 @@ void rotatematrix(int m, int n, int mat[m][n])
         col++; 
     } 
    
-    for (int i=0; i<R; i++) 
-    { 
-        for (int j=0; j<C; j++) 
-          printf("%d ",mat[i][j]); 
-       printf("\n"); 
-    } 
+    return mat;
 } 
 int main() 
 { 
@@ -76,7 +71,19 @@ int main()
 	  {
 		  scanf("%d",&arr[i][j]);
 	  }
-  } 
-     rotatematrix(n, n, arr); 
+  }
+  int *ptr;
+  ptr=arr;
+  int rot;
+  scanf("%d",&rot);
+ for(int k=0;k<rot;k++) 
+    ptr= rotatematrix(n, n, arr);
+for(int i=0;i<n;i++)
+{
+	for(int j=0;j<n;j++){
+		printf("%d ",arr[i][j]);
+	}
+	printf("\n");
+}	
     return 0; 
 } 
